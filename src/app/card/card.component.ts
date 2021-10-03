@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, Input, OnInit} from '@angular/core'
+import {Card} from "../app.component";
 
 @Component({
   selector: 'app-card',
@@ -6,18 +7,28 @@ import {Component, OnInit} from '@angular/core'
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  ngOnInit() {
-    setTimeout(() => {
-      this.imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Angular_one_color_inverse_logo.svg/1200px-Angular_one_color_inverse_logo.svg.png'
-    }, 3000)
-  }
 
+  @Input() card: Card = {title: '', text: ''}
+  @Input() index: number = 0
+
+  cardDate: Date = new Date()
   title = 'My Cart Title'
   text = 'My simple text'
+  textColor: string = ''
 
-  imgUrl = 'https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg'
 
-  getInfo() {
-    return 'This is my info'
+
+  ngOnInit() {
+
   }
+
+  changeTitle() {
+    this.card.title = 'Title was changed'
+  }
+
+  changeHandler() {
+    console.log(this.title)
+  }
+
+
 }

@@ -8,4 +8,20 @@
   img {
     max-width: 50px;
   }
+  .buttons {
+    margin-bottom: 10px;
+  }
+  .text {
+    font-size: 1.5rem;
+
+    &.red {
+      color: red;
+    }
+    &.blue {
+      color: blue;
+    }
+    &.green {
+      color: green;
+    }
+  }
 }
