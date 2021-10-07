@@ -1,6 +1,9 @@
-<form action="">
-  <input name="search" placeholder="Try to find something..." type="text" [(ngModel)]="search">
-  <button >Search</button>
-</form>
+<div class="container">
+  <form action="">
+    <input name="search" placeholder="Try to find something..." type="text" [(ngModel)]="search">
+    <button (click)="searchHandler()">Search</button>
+  </form>
+  <app-list [items]="list.items" *ngIf="list.items && !isLoading"></app-list>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>
 
-<app-list></app-list>
