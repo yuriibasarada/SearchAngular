@@ -1,0 +1,19 @@
+<div class="list-item">
+  <div class="author">
+    <img
+      [src]="item.owner.profile_image"
+      [alt]="item.owner.display_name"
+      height="50"
+      width="50"
+    >
+    <span class="name">{{item.owner.display_name}}</span>
+  </div>
+  <div class="subject">{{item.title}}</div>
+  <div class="left-block">
+    <div class="numbers">{{item.answer_count}}</div>
+    <div (click)="displayAnswers()" class="display">
+      display
+    </div>
+  </div>
+<!--  <app-display></app-display>-->
+</div>

@@ -1,7 +1,10 @@
 <div class="list-wrapper">
-  <h1 *ngIf="!items.length">Nothing to show</h1>
-  <div *ngIf="items.length">
-
-  </div>
+  <h1 *ngIf="!items.length; else haveQuestions">Nothing to show</h1>
+  <ng-template class="list-items" #haveQuestions>
+    <app-list-item
+      *ngFor="let item of items"
+      [item]="item"
+    ></app-list-item>
+  </ng-template>
 </div>
 

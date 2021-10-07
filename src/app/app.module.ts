@@ -8,7 +8,9 @@ import {CardComponent} from './card/card.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { LoaderComponent } from './loader/loader.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ListItemComponent } from './list-item/list-item.component';
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http'
     CardComponent,
     HomeComponent,
     ListComponent,
-    LoaderComponent
+    LoaderComponent,
+    ListItemComponent,
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
