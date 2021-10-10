@@ -1,0 +1,14 @@
+<div class="answer">
+  <div class="author">
+    <img
+      [src]="answer.owner.profile_image"
+      [alt]="answer.owner.display_name"
+      height="50"
+      width="50"
+    >
+    <span class="title">
+      {{answer.owner.display_name}}
+    </span>
+  </div>
+  <div class="content" [innerHTML]="answer.body"></div>
+</div>

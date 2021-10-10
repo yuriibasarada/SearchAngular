@@ -1,0 +1,36 @@
+<div class="question-element container">
+  <div class="got-to-home" routerLink="/">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back_ios</mat-icon>
+    Go back to Home
+  </div>
+  <app-loader *ngIf="isLoading; else result"></app-loader>
+  <ng-template class="result" #result>
+    <div
+      class="question"
+      *ngIf="question && question.items.length; else noQuestion">
+        <div class="left-block">
+          <img
+            [src]="question.items[0].owner.profile_image"
+            [alt]="question.items[0].owner.display_name"
+            width="50"
+            height="50"
+          >
+          <span class="title">{{question.items[0].owner.display_name}}</span>
+        </div>
+        <div class="content">
+          <h1>{{question.items[0].title}}</h1>
+          <div class="body" [innerHTML]="question.items[0].body"></div>
+          <div class="tags">
+            <span
+             *ngFor="let tag of question.items[0].tags"
+             class="tag">
+             {{tag}}
+             </span>
+          </div>
+        </div>
+    </div>
+    <ng-template #noQuestion>
+      No question *(
+    </ng-template>
+  </ng-template>
+</div>

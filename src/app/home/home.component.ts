@@ -17,10 +17,16 @@ export class HomeComponent implements OnInit {
 
   async searchHandler() {
     this.isLoading = true
-    this.http.get(`${environment.API_URL}/questions?order=desc&sort=activity&tagged=${this.search}&site=stackoverflow`).subscribe({
+    this.http.get(`${environment.API_URL}/questions`, {
+      params: {
+        tagget: this.search,
+        site: 'stackoverflow',
+        sort: 'activity',
+        filter: '!2JhtlT1p_(DM0(9ODK)Co_EviwCdbEUaQP3a*IZwPYGvrZN8Pnz37xWZbezrjvuD*Y__Lof0xxCjq'
+      }
+    }).subscribe({
         next: (data: any) => {
           this.list = data
-          console.log(data)
           this.isLoading = false
         },
         error: error => {

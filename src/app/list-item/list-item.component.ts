@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayComponent} from "../display/display.component";
 
 @Component({
   selector: 'app-list-item',
@@ -11,26 +11,15 @@ export class ListItemComponent implements OnInit {
 
   @Input() item: any
 
-  constructor(private http: HttpClient) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {}
 
-  answers = []
-  isLoading = false
 
   async displayAnswers() {
-    this.isLoading = true
-    this.http.get(`${environment.API_URL}/questions/${this.item.question_id}/answers?order=desc&sort=activity&site=stackoverflow`).subscribe({
-      next: (data: any) => {
-        this.answers = data
-        console.log(data)
-        this.isLoading = false
-      },
-      error: error => {
-        console.log(error)
-        this.isLoading = false
-      }
-    })
+    this.dialog.open(DisplayComponent, {
+      data: this.item.answers
+    });
   }
 
 }

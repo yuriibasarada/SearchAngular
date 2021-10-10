@@ -1,1 +1,13 @@
-<p>display works!</p>
+<h1 mat-dialog-title>Answers</h1>
+<mat-dialog-content
+  *ngIf="data && data.length; else noAnswers" class="answers">
+  <app-answer [answer]="answer" *ngFor="let answer of data">
+
+  </app-answer>
+</mat-dialog-content>
+<ng-template #noAnswers>
+No answers :(
+</ng-template>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

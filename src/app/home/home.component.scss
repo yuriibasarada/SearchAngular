@@ -1,20 +1,21 @@
-.container {
+.home {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   form {
     margin-bottom: 20px;
-    background-color: tomato;
     padding: 20px;
     margin-top: 40px;
     box-sizing: border-box;
     display: flex;
+    background-color: lightgray;
     justify-content: center;
     width: 100%;
     input {
-      font-weight: bold;
+      font-weight: normal;
       outline: none;
-      border: none;
+      border: 1px solid tomato;
+      width: 100%;
       font-size: 16px;
       height: 40px;
       padding-left: 10px;
@@ -22,15 +23,17 @@
     button {
       box-sizing: border-box;
       background-color: white;
-      border: 1px solid white;
+      border: 1px solid tomato;
       margin-left: 10px;
       font-weight: bold;
       padding-left: 10px;
+      height: 44px;
+      text-transform: uppercase;
       letter-spacing: 0.7px;
       padding-right: 10px;
       &:hover {
+        background-color: tomato;
         cursor: pointer;
-        background-color: transparent;
         color: white;
       }
     }

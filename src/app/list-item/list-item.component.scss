@@ -7,37 +7,90 @@
   box-shadow: 0 4px 20px rgba(0,0,0,.15);
   padding: 10px;
   &:hover {
-    cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,.25);
   }
-  .author {
-    min-width: 100px;
-    max-width: 100px;
-    margin-right: 20px;
-    img {
-      border-radius: 50%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+  .right-block {
+    max-width: calc(100% - 130px);
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    @media (max-width: 578px) {
+      max-width: calc(100% - 80px);
     }
-    span.name {
-      display: block;
-      color: grey;
-      text-align: center;
-      white-space: nowrap;
+    .author {
+      min-width: 100px;
+      max-width: 100px;
+      margin-right: 20px;
+      @media only screen and (max-width: 578px) {
+        min-width: 60px;
+        max-width: 60px;
+        margin-right: 12px;
+      }
+      img {
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      span.name {
+        display: block;
+        color: grey;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-top: 6px;
+        text-overflow: ellipsis;
+      }
+    }
+    .subject {
+      font-size: 16px;
+      box-sizing: border-box;
+      height: 100%;
+      outline: none;
+      margin-bottom: 30px;
+      @media (max-width: 578px) {
+        font-size: 14px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .tags {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      left: 120px;
       overflow: hidden;
-      margin-top: 6px;
-      text-overflow: ellipsis;
+      bottom: 0;
+      @media (max-width: 578px) {
+        left: 70px;
+      }
+      .tag {
+        box-shadow: rgba(99, 99, 99, 0.2) 0 1px 4px 0;
+        background: white;
+        padding: 2px 4px;
+        font-size: 10px;
+        color: grey;
+        margin-right: 2px;
+        margin-bottom: 2px;
+        white-space: nowrap;
+      }
     }
   }
+
   .left-block {
     margin-left: auto;
     display: flex;
     .numbers {
+      font-size: 16px;
       width: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 578px) {
+        width: 25px;
+        font-size: 14px;
+      }
     }
     .display {
       padding: 6px 12px;
@@ -48,10 +101,18 @@
       font-size: 12px;
       transition: all 0.3s ease-in-out;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
       border: 1px solid tomato;
       &:hover {
         background: transparent;
+        cursor: pointer;
         color: tomato;
+      }
+      span.text {
+        @media (max-width: 578px) {
+          display: none;
+        }
       }
     }
   }

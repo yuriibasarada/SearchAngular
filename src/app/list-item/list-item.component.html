@@ -1,19 +1,28 @@
 <div class="list-item">
-  <div class="author">
-    <img
-      [src]="item.owner.profile_image"
-      [alt]="item.owner.display_name"
-      height="50"
-      width="50"
-    >
-    <span class="name">{{item.owner.display_name}}</span>
+  <div class="right-block">
+    <div class="author">
+      <img
+        [src]="item.owner.profile_image"
+        [alt]="item.owner.display_name"
+        height="50"
+        width="50"
+      >
+      <span class="name">{{item.owner.display_name}}</span>
+    </div>
+    <span routerLink="/question/{{item.question_id}}" class="subject">{{item.title}}</span>
+    <div class="tags">
+      <span
+        *ngFor="let tag of item.tags"
+        class="tag">
+        {{tag}}
+      </span>
+    </div>
   </div>
-  <div class="subject">{{item.title}}</div>
   <div class="left-block">
     <div class="numbers">{{item.answer_count}}</div>
     <div (click)="displayAnswers()" class="display">
-      display
+      <mat-icon aria-hidden="false" aria-label="Example home icon">question_answer</mat-icon>
+      <span class="text">display</span>
     </div>
   </div>
-<!--  <app-display></app-display>-->
 </div>
