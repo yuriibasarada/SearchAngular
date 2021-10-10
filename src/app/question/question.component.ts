@@ -27,7 +27,6 @@ export class QuestionComponent implements OnInit {
         next: (data: any) => {
           this.isLoading = false
           this.question = data
-          console.log(data)
         },
         error: error => {
           this.isLoading = false

@@ -15,7 +15,6 @@ export class DisplayComponent implements OnInit {
   answers = []
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
 }
